@@ -1,19 +1,22 @@
-//
-//  ViewController.swift
-//  HelloWorld
-//
-//  Created by Пользователь on 18.07.2023.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    @IBOutlet var greetingLabel: UILabel!
+    @IBOutlet var greetingButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        greetingLabel.isHidden.toggle()
+        greetingLabel.layer.cornerRadius = 10
     }
 
-
+    @IBAction func showGreetingDidTapped(_ sender: UIButton) {
+        greetingLabel.isHidden.toggle()
+        sender.setTitle(
+            greetingLabel.isHidden ? "Show Greeting" : "Hide Greeting",
+            for: .normal
+        )
+    }
+    
 }
-
